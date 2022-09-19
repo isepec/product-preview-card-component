@@ -1,0 +1,186 @@
+/* ===== General ===== */
+:root {
+    --dark-0: hsl(212, 21%, 14%);
+    --dark-1: hsl(228, 12%, 48%);
+
+    --light-0: hsl(30, 38%, 92%);
+    --light-1: hsl(0, 0%, 100%);
+
+    --accent: hsl(158, 36%, 37%);
+    --accent-dark: hsl(158, 36%, 17%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    background-color: var(--light-0);
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+::selection {
+    color: var(--light-1);
+    background: var(--accent);
+}
+
+
+/* ===== Card (Main) ===== */
+.card * {
+    margin: 0;
+}
+
+.card {
+    background: var(--light-1);
+    width: 340px;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px hsla(0, 0%, 0%, 3%);
+}
+
+.card__img {
+    overflow: hidden;
+}
+
+.card__img--mobile {
+    width: 340px;
+}
+
+.card__img--desktop {
+    display: none;
+
+    transition: transform 1s;
+}
+
+.card__img--desktop:hover {
+    transform: scale(1.1);
+}
+
+.card__content { /* The "content" is all of the text inside the card and a button, without the image. */
+    padding: 25px;
+}
+
+@media (min-width: 800px) {
+    .card {
+        display: flex;
+        width: fit-content;
+    }
+
+    .card__img--mobile {
+        display: none;
+    }
+
+    .card__img--desktop {
+        display: block;
+        width: 310px;
+    }
+
+    .card__content {
+        width: 310px;
+        padding: 35px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.card__category {
+    color: var(--dark-1);
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    margin-bottom: 1em;
+}
+
+.card__title {
+    color: var(--dark-0);
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: .6em;
+}
+
+.card__description {
+    color: var(--dark-1);
+    font-size: .9rem;
+    line-height: 1.65;
+    margin-bottom: 1.5em;
+}
+
+.card__price {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.card__price-current {
+    color: var(--accent);
+    font-family: "Fraunces", serif;
+    font-size: 2rem;
+}
+
+.card__price-old {
+    color: var(--dark-1);
+    font-size: .8rem;
+    text-decoration: line-through;
+    margin-left: 1.6em;
+}
+
+.card__btn {
+    background: var(--accent);
+    color: var(--light-1);
+    font-size: .9rem;
+    text-decoration: none;
+    font-weight: 600;
+
+    display: block;
+    text-align: center;
+    padding: 1em;
+    border-radius: .5em;
+
+    transition: background .5s;
+}
+
+.card__btn::before {
+    content: url(images/icon-cart.svg);
+    margin-right: .8em;
+    vertical-align: middle;
+}
+
+.card__btn:hover, .card__btn:focus {
+    background: var(--accent-dark);
+}
+
+
+/* ===== Footer ===== */
+footer {
+    font-size: .7rem;
+    text-align: center;
+
+    width: 18em;
+    margin: 1em auto 3em;
+}
+
+footer a {
+    color: var(--accent);
+}
+
+@media (min-width: 800px){
+    footer {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+    }
+}
